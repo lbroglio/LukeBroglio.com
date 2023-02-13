@@ -6,13 +6,39 @@ html, body {
 
     display: flex;
     flex-direction: column;
-  }
+}
+
 .banner{
     height: 85px;
     width: 100%;
-    background-color: #444444;
+    position: absolute;
+    background-color: maroon;
     border-bottom: 2px solid black;
     
+}
+
+.banner h1{
+    margin-left: 100px;
+    top: 25%;
+    display: inline;
+    position: relative;
+    text-align: center;
+    user-select: none;
+}
+
+.banner a{
+  text-decoration: none;
+  color: black;
+}
+
+.banner a:hover{
+  color: white;
+}
+
+.wrapper{
+  color: black;
+  width: 100px;
+  width: 30px;
 }
 
 .videoContainer {
@@ -24,6 +50,7 @@ html, body {
   overflow: hidden;
 
 }
+
 .videoContainer video {
   /* Make video to at least 100% wide and tall */
   min-width: 100%; 
@@ -36,4 +63,27 @@ html, body {
   width: auto;
   height: auto;
   
+}
+
+.videoOverlay{
+  z-index: 1;
+}
+
+.videoOverlay h1{
+    left: 140px;
+    font-size: 150px;
+    top: 25%;
+
+    
+    color: whitesmoke;
+    position: absolute;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    user-select: none;
+    
+}
+
+
+.videoOverlay h1:hover{
+  color: silver;
+
 }
