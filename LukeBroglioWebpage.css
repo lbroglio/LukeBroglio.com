@@ -6,6 +6,7 @@ html, body {
 
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .banner{
@@ -70,9 +71,10 @@ html, body {
 }
 
 .videoOverlay h1{
-    left: 140px;
-    font-size: 150px;
-    top: 25%;
+    left: 5vw;
+    font-size: 10dvw;
+    top: 35%;
+    margin: 0;
 
     
     color: whitesmoke;
@@ -82,8 +84,67 @@ html, body {
     
 }
 
+.videoOverlay a{
+  text-decoration: none;
+  color: inherit;
+}
 
 .videoOverlay h1:hover{
   color: silver;
 
 }
+
+
+.popup{
+  position: absolute;
+  top: 35%;
+  left: 68vw;
+  width: 300px;
+  height: 300px;
+  display: none;
+
+}
+
+.popup:hover{
+  display: block;
+}
+
+.popup a{
+  padding-bottom: 30px;
+  font-size: 3.5dvw;
+  margin-left: 50px;
+
+  display: inherit;
+  color: whitesmoke;
+  position: relative;
+  user-select: none;
+  text-decoration: none;
+}
+
+.popup a:hover{
+  color: silver;
+
+}
+.videoOverlay h1:hover + .popup{
+  display: block;
+}
+
+.videoOverlay h1:hover  span#name{
+  color: rgb(0, 0, 202)
+}
+
+
+#name{
+  color: blue;
+}
+
+#name:hover{
+  color: rgb(0, 0, 202);
+}
+
+
+
+
+
+
+
