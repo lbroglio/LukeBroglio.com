@@ -1,39 +1,22 @@
 html, body {
-    height: 100%;
-    width:  100%;
     margin-left: 0%;
     margin-top: 0%;
 
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+
 }
 
-.banner{
-    height: 85px;
-    width: 100%;
-    position: absolute;
-    background-color: maroon;
-    border-bottom: 2px solid black;
-    
-}
 
-.banner h1{
-    margin-left: 100px;
-    top: 25%;
-    display: inline;
-    position: relative;
-    text-align: center;
-    user-select: none;
-}
-
-.banner a{
-  text-decoration: none;
-  color: black;
-}
-
-.banner a:hover{
-  color: white;
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
 
 .wrapper{
@@ -48,8 +31,11 @@ html, body {
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 100vh;
+
   overflow: hidden;
 
+  scroll-snap-align: start;
 }
 
 .videoContainer video {
@@ -71,15 +57,18 @@ html, body {
 }
 
 .videoOverlay h1{
+    border-radius: 30px;
     left: 5vw;
-    font-size: 10dvw;
-    top: 35%;
+    font-size: 12dvw;
+    bottom: 35%;
     margin: 0;
 
-    
+    background-color: rgba(255, 255, 255, 0);
+
+
     color: whitesmoke;
     position: absolute;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    --bs-body-font-family: "Verdana";
     user-select: none;
     
 }
@@ -89,62 +78,76 @@ html, body {
   color: inherit;
 }
 
-.videoOverlay h1:hover{
-  color: silver;
-
-}
-
-
-.popup{
-  position: absolute;
-  top: 35%;
-  left: 68vw;
-  width: 300px;
-  height: 300px;
-  display: none;
-
-}
-
-.popup:hover{
-  display: block;
-}
-
-.popup a{
-  padding-bottom: 30px;
-  font-size: 3.5dvw;
-  margin-left: 50px;
-
-  display: inherit;
-  color: whitesmoke;
-  position: relative;
-  user-select: none;
+.videoOverlay a:hover{
   text-decoration: none;
+  color: inherit;
 }
 
-.popup a:hover{
-  color: silver;
+.videoOverlay h1:hover{
+  color: rgb(192, 192, 192);
+  /*background-color: rgba(255, 255, 255, .15);*/
 
-}
-.videoOverlay h1:hover + .popup{
-  display: block;
-}
-
-.videoOverlay h1:hover  span#name{
-  color: rgb(0, 0, 202)
 }
 
 
-#name{
-  color: blue;
+#name{ 
+  font-size: 17dvw;
 }
 
-#name:hover{
-  color: rgb(0, 0, 202);
+.page{  
+  
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 100vh;
+  background-color: rgb(61, 59, 57);
+
+  scroll-snap-align: start;
+  
 }
 
 
+.bioCon{
+  position: relative;
+  overflow-y: hidden;
+
+  bottom: 0;
+
+  left: 50vw;
+  width: 45vw;
+
+}
+
+.bioCon:hover{
+  overflow-y: auto;
+}
 
 
+.page h2{
+  position: relative;
+  left: 50vw;
+  width: 50vw;
+
+  font-size: 40px;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  color: whitesmoke;
+}
+
+.bioCon p{
+  font-size: 20px;
+
+  position: relative;
+  color: whitesmoke;
 
 
+  word-wrap: break-word;
+}
 
