@@ -14,6 +14,34 @@ html, body {
 
 }
 
+.sideBar{
+  position: fixed;
+  z-index: 1;
+  background-color: red;
+
+  width: fit-content;
+  height: fit-content;
+
+
+  right: 3vw;
+
+  top: 55%;
+  transform: translateY(-50%) scale(2);
+
+
+}
+
+.sideBar svg{
+  display: block;
+
+  margin-bottom: 10px;
+}
+
+.sideBar svg#last{
+  margin-bottom: 0;
+}
+
+
 
 body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
@@ -121,7 +149,7 @@ body::-webkit-scrollbar {
 
   bottom: 0;
 
-  left: 50vw;
+  left: 40vw;
   width: 45vw;
 
 }
@@ -142,8 +170,8 @@ body::-webkit-scrollbar {
 
 #about_me_title{
   position: relative;
-  left: 50vw;
-  width: 50vw;
+  left: 40vw;
+  width: 45vw;
 
   font-size: 40px;
 

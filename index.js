@@ -1,5 +1,29 @@
+var pageIndex = 0;
+
+function scrollInDirection(direction){
+    //Set the side bar based on the direction scrolled in
+    setSideBar(pageIndex + direction);
+}
 
 
+
+function sideBar(newIndex){
+    //Get the button to unfill
+    var oldButton = document.getElementById("sideB" + pageIndex);
+
+    //Unfill the old button
+    oldButton.classList.remove("bi-circle-fill")
+    oldButton.classList.add("bi-circle")
+
+    //Set the current index to the page index and get the new button
+    pageIndex = newIndex;
+    var newButton = document.getElementById("sideB" + pageIndex);
+
+    //Fill the new butonn
+    oldButton.classList.remove("bi-circle")
+    oldButton.classList.add("bi-circle-fill")
+
+}
 
 
 function cycleProjects(direction){
@@ -70,6 +94,12 @@ function loadProjectIcons(projects){
             //Give the div the id for this project
             currDiv.id = currProject.id;
 
+            //Create an anchor element
+            var currAnchor =  document.createElement("a");
+
+            //Add the proper link to the anchor
+            currAnchor.href = "projects.html#" + currProject.id;
+
             //Create the image element to add to the div
             var currImg = document.createElement("img");
 
@@ -77,8 +107,11 @@ function loadProjectIcons(projects){
             currImg.src = currProject.previewImage;
             currImg.alt = "Project Preview";
 
-            //Add image to the div
-            currDiv.appendChild(currImg);
+            //Add image to the anchor
+            currAnchor.appendChild(currImg);
+
+            //Add the anchor to the div
+            currDiv.appendChild(currAnchor);
 
             //Create the h2 for this div
             var currH = document.createElement("h2");
@@ -145,3 +178,5 @@ fetch('./projectInfo.json')
     loadProjectIcons(data);
     loadNavbarDropDown(data);
 })
+
+window.onscroll = function() { }
