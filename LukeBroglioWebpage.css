@@ -17,11 +17,11 @@ html, body {
 .sideBar{
   position: fixed;
   z-index: 1;
-  background-color: red;
 
   width: fit-content;
   height: fit-content;
 
+  display: block;
 
   right: 3vw;
 
@@ -35,9 +35,10 @@ html, body {
   display: block;
 
   margin-bottom: 10px;
+
 }
 
-.sideBar svg#last{
+.sideBar svg#sideB3{
   margin-bottom: 0;
 }
 
@@ -88,7 +89,7 @@ body::-webkit-scrollbar {
     border-radius: 30px;
     left: 5vw;
     font-size: 12dvw;
-    bottom: 35%;
+    bottom: 10%;
     margin: 0;
 
     background-color: rgba(255, 255, 255, 0);
@@ -250,7 +251,7 @@ span.linkText{
   top: 15vh;
 
   height: 80vh;
-  width: 62vw;
+  width: 50vw;
 
   align-self: center;
 
@@ -326,9 +327,13 @@ span.linkText{
 
 #rightButton{
   right: .5vw;
-
 }
 
+#projectsTitle{
+  align-self: center;
+  margin-top: 3vh;
+  font-size: 50px;
 
+  color: whitesmoke;
 
-
+}

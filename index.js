@@ -1,30 +1,32 @@
 var pageIndex = 0;
 
-function scrollInDirection(direction){
-    //Set the side bar based on the direction scrolled in
-    setSideBar(pageIndex + direction);
-}
-
-
-
 function sideBar(newIndex){
     //Get the button to unfill
     var oldButton = document.getElementById("sideB" + pageIndex);
 
     //Unfill the old button
-    oldButton.classList.remove("bi-circle-fill")
-    oldButton.classList.add("bi-circle")
+    var currCirc = oldButton.getElementsByTagName("circle")[0];
+    oldButton.removeChild(currCirc);
+    var newCirc = document.createElementNS("http://www.w3.org/2000/svg","path");
+    newCirc.setAttribute("d","M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z");
+    oldButton.appendChild(newCirc)
 
     //Set the current index to the page index and get the new button
     pageIndex = newIndex;
     var newButton = document.getElementById("sideB" + pageIndex);
 
-    //Fill the new butonn
-    oldButton.classList.remove("bi-circle")
-    oldButton.classList.add("bi-circle-fill")
+    //Fill the new button
+    currCirc = newButton.getElementsByTagName("path")[0];
+    newButton.removeChild(currCirc);
 
+    newCirc = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    newCirc.setAttribute("cx","8");
+    newCirc.setAttribute("cy","8");;
+    newCirc.setAttribute("r","8");;
+
+    newButton.appendChild(newCirc);
+    
 }
-
 
 function cycleProjects(direction){
     //Gets the list of all projects
@@ -178,5 +180,3 @@ fetch('./projectInfo.json')
     loadProjectIcons(data);
     loadNavbarDropDown(data);
 })
-
-window.onscroll = function() { }
