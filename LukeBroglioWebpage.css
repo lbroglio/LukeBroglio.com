@@ -229,7 +229,7 @@ body::-webkit-scrollbar {
 }
 
 .contactList a:hover span{
-  font-size: 9vh;
+  font-size: 7vh;
 }
 
 
@@ -337,3 +337,133 @@ span.linkText{
   color: whitesmoke;
 
 }
+
+.projectCon{
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  
+  overflow: hidden;
+}
+
+.projectInformation{
+  position: relative;
+
+  color:  whitesmoke;
+  background-color: rgb(61, 59, 57);
+
+  margin-right: 10vw;
+
+  height: 100%;
+
+  overflow-y: hidden;
+}
+
+.projectInformation:hover{
+  overflow-y: auto;
+}
+
+.projectInformation ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0px;
+}
+
+.projectInformation h3{
+  text-decoration: underline;
+}
+
+.projectVisuals{
+  width: 39vw;
+  height: 65vh;
+
+  color:  whitesmoke;
+  
+  position: relative;
+
+  margin-left: 5vw;
+  margin-right: 5vw;
+
+}
+
+.projectVisuals img{
+  width: auto;
+  height: auto;
+
+  max-width: 30vw;
+  max-height: 60vh;
+  
+}
+
+.projectVisuals .imageWrapper{
+  width: 450px;
+}
+
+.projectVisuals h3{
+  margin-bottom: 0;
+}
+
+.projectTitle{
+  margin-top: 5x;
+  margin-bottom: 10px;
+
+  align-self: center;
+  color: whitesmoke;
+
+  font-size: 72px;
+
+}
+
+.projectImagesFull{
+  display: none;
+  background-color: rgb(61, 59, 57);
+
+  color: whitesmoke;
+
+  margin-top: 0;
+
+  display: none;
+
+
+}
+
+.projectImagesFull h3{
+  margin-bottom: 3vh;
+}
+
+.projectImagesFull div{
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  /*margin-left: 2vw;*/
+
+  
+  
+}
+
+.projectImagesFull img{
+  width: auto;
+  height: 70vh;
+
+  margin-top: 0vh;
+  
+
+}
+
+.imageButton:hover{
+  background-color: silver;
+}
+
+.imageSeeButton{
+  margin-top: 6px;
+
+}
+
+.imageHideButton{
+  position: absolute;
+
+  bottom: 10px;
+  left: 30px;
+}
+
+

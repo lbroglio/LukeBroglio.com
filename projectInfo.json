@@ -1,12 +1,54 @@
-[
-    {
+{
+    "i281Asm": {
         "id": "i281Asm",
         "name": "i281 Assembler",
-        "previewImage": "Media/asmMain.png"
+        "previewImage": "Media/asmMain.png",
+        "altText": "Preview for the project. Snippet of C++ code taken from the projects main function.",
+        "desPageImg": {
+            "imageSrc": "Media/asmMain.png",
+            "caption": "The main function of the assembler's C++ code."
+        },
+        "pageImages": [
+            {
+                "caption": "The main function of the assembler's C++ code",
+                "source": "Media/asmMain.png"
+            },
+            {
+                "caption": "An example of the one of the Verilog HDL files the Assembler creates.",
+                "source": "Media/VerilogEx.png"
+            },
+            {
+                "caption": "Side by side comparison of input Assembly code and outputted machine code.",
+                "source": "Media/asmCodeComparison.png"
+            }
+        ],
+        "pageText": {
+            "overview": "My Digital Logic course involved working with a student-designed simulated CPU which had its own assembly language and CPU instructions. I designed and wrote a C++ program to convert code in the CPU's assembly language to machine code instructions for the CPU.",
+            "details": {
+                "highLevel": "The assembler consists of three parts each with their own C++ file.",
+                "detailList": [
+                    "The parser is responsible for taking in code from a specified file and formatting it to be easily read during assembly. It removed all comments and unnecessary white space from the code, made a list of all conditional jump locations, and separated the data segment from the code segment.",
+                    "The main assembler was responsible for creating the machine code from the parsed code. For each line, it started by using a dictionary to get the binary identifier for the line's Opcode and then used an if statement to decide how to generate the rest of the line's corresponding machine code.",
+                    "Finally, the code would be sent to various functions to properly format the code and output it to the required files. The code was outputted into four different files. Three Verilog HDL files could be used to program the simulated CPU, and one .bin file presented the generated machine code along with information on its variables, register usage, and conditional jumps."
+                ]
+            },
+            "challenges": [
+                "The first challenge I had to overcome with this project was ensuring the assembler wouldn't trip on the code if it was formatted differently. I had never worked with programs with inputs this complicated before, so I had to practice how to do this. I solved this by having the parser carefully ensure that everything was spaced out by adding and removing spaces to ensure that exactly one space was used throughout the code.",
+                "The other major challenge I had to overcome was ensuring that the assembler could elegantly access the different types of data it needed. The program needed to know the line numbers of conditional points, the assigned memory location of user-created variables, and the proper ordering of certain elements. I relied heavily on data structures to solve this. I associated the names of jump points with their line number in a map to allow quick access to the location based on the name found in the code. I used the same method for storing user variables' locations with their names and utilized vectors to store the information I wanted to access in a set order."
+            ]
+        },
+        "github-link": "https://github.com/lbroglio/i281Assembler"
     },
-    {
+    "SpamGram": {
         "id": "SpamGram",
         "name": "SpamGram",
-        "previewImage": "Media/sgPreview.jpg"
+        "previewImage": "Media/sgIcon.png",
+        "altText": "Preview for the project. Three different views of the app in action. One showed the user viewing the main screen, the second them viewing comments, and the third the user sending a message."    
+    },
+    "327Game": {
+        "id": "327Game",
+        "name": "Pokemonesque Roguelike",
+        "previewImage": "Media/327Map.png",
+        "altText": "Preview for the project. A map text based map for a terminal based video game"    
     }
-]
+}
