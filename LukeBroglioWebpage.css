@@ -431,7 +431,8 @@ span.linkText{
   margin-bottom: 3vh;
 }
 
-.projectImagesFull div{
+.projectImagesFull .core{
+  z-index: 0;
   display: inline-block;
   margin: auto;
   text-align: center;
@@ -462,8 +463,46 @@ span.linkText{
 .imageHideButton{
   position: absolute;
 
+  z-index: 1;
   bottom: 10px;
   left: 30px;
 }
 
+.clickBar {
+  display: block;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
 
+  width: 50vw;
+  
+  
+  margin-bottom: 15px;
+  background-color: rgb(0, 0, 0, 0);
+}
+
+.clickBar:hover{
+  background-color: rgb(0, 0, 0, 0.07);
+}
+
+.clickBar:hover svg{
+  fill: rgb(101, 100, 100);
+}
+
+.clickBar svg{
+  position: relative;
+  left: 50%;
+  top: 50%;
+
+  width: fit-content;
+
+  transform: scale(8)
+}
+
+
+.leftbar{
+  left: 0;
+}
+.rightbar{
+  right: 0;
+}
