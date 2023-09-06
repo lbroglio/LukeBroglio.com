@@ -1,4 +1,9 @@
 var pageIndex = 0;
+let JSONGlobal = {};
+
+function setJSONGlobal(data){
+    JSONGlobal = data;
+}
 
 function sideBar(newIndex){
     //Get the button to unfill
@@ -196,6 +201,37 @@ function hideImages(id){
     projectCon.style.display = "flex";
 }
 
+//Shift the index to the image when a clickbar is pressed
+function clickBar(direction, project){
+    let galleryDiv = document.getElementById(project+"ExtraImages");
+    let coreDiv = galleryDiv.querySelectorAll("*.core")[0]
+
+    //Find the current index including the shift
+    let index = parseInt(getComputedStyle(coreDiv).getPropertyValue('--currentIndex')) + direction;
+    
+    //Make sure the index isnt out of bounds
+    if(index < 0){
+        index = JSONGlobal[project]["pageImages"].length + index;
+    }
+    else if(index == JSONGlobal[project]["pageImages"].length){
+        index = 0;
+        
+    }
+
+    // Set the index to the updated one
+    coreDiv.style.setProperty('--currentIndex', index)
+    
+    // Get the new image and caption 
+    let newCaption = JSONGlobal[project]["pageImages"][index]["caption"]
+    let newSrc = JSONGlobal[project]["pageImages"][index]["source"]
+
+    //Set the proper elements with the new caption and source
+    coreDiv.querySelectorAll("#galleryCaption")[0].setHTML(newCaption);
+    coreDiv.querySelectorAll("#galleryImg")[0].setAttribute("src", newSrc);
+ 
+
+}
+
 //Populate the page for a specific project with the data for that project
 //Page is the div to that is the anscestor of all the elements that need to be populated
 //Project data is the information to add retrieved from a JSON  file
@@ -290,15 +326,33 @@ function createProjectPage(page, projectData){
     challengesHeader.after(challengeListEL)
 
     //Set the github link to the proper one according to the project data
-    let githubLink = infoDiv.querySelectorAll(".github-link")[0]
+    let githubLink = infoDiv.querySelectorAll(".github-link")[0];
     githubLink.setAttribute("href", projectData["github-link"])
 
     //Set up the image gallery
-    let galleryDiv = infoDiv.querySelectorAll("projectImagesFull")
+    let galleryDiv = page.querySelectorAll(".projectImagesFull")[0];
 
-    
+    //Insert the starting image and caption
+    let coreDiv = galleryDiv.querySelectorAll(".core")[0];
+    let imgCaption = document.createElement("h3");
+    imgCaption.id = "galleryCaption"
+    imgCaption.setHTML(projectData["pageImages"][0]["caption"]);
+    coreDiv.appendChild(imgCaption);
+    imgEl = document.createElement("img");
+    imgEl.setAttribute("src",  projectData["pageImages"][0]["source"]);
+    imgEl.id = "galleryImg"
+    coreDiv.appendChild(imgEl)
 
-    
+    //Set the proper function for the click bars
+    let leftClickbar  = galleryDiv.querySelectorAll(".leftbar")[0]
+    leftClickbar.onclick = function leftWrapper() {clickBar(-1,id)}
+    let rightClickbar  = galleryDiv.querySelectorAll(".rightbar")[0]
+    rightClickbar.onclick = function rightWrapper() {clickBar(-1,id)}
+
+    //Set up the hide images button correctly 
+    let hideButton = galleryDiv.querySelectorAll(".imageHideButton")[0]
+    hideButton.onclick = function hideWrapper() {hideImages(id)}
+
 }
 
 
@@ -315,6 +369,7 @@ fetch('./projectInfo.json')
 })
 .then(function (data) {
     let page = document.getElementsByClassName("projectPage")[0]
+    setJSONGlobal(data)
     createProjectPage(page, data["i281Asm"])
     loadProjectIcons(data);
     loadNavbarDropDown(data);

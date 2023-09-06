@@ -11,7 +11,7 @@
 
 <body>
   <div class="page projectPage" id="">
-    <nav class="navbar navbar-dark navbar-expand-lg" style = "background-color: black;">
+    <nav class="navbar navbar-dark navbar-expand-lg" style = "background-color: black; z-index: 1;">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">Luke Broglio</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,26 +49,23 @@
         <h3 class="projectDetails">Project Details</h3>
         <h3 class="projectChallenges">Challenges of this project</h3>
 
-        <a href="https://github.com/lbroglio/i281Assembler">See this project on GitHub</a>
+        <a class="github-link" href="https://github.com/lbroglio/i281Assembler">See this project on GitHub</a>
       </div>        
     </div>
     <div class = "projectImagesFull" id = "i281AsmExtraImages">
-      <div class = "clickBar leftbar">
+      <div class = "clickBar leftbar" onclick="">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
           <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
         </svg>
       </div>
-      <div class ="core">
-        <h3>The main function of the assembler's C++ code.</h3>
-        <img src = "Media/asmMain.png">
-      </div>
-      <div class = "clickBar rightbar">
+      <div class ="core"></div>
+      <div class = "clickBar rightbar" onclick="">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
           <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
         </svg>
       </div>
 
-      <button class = "imageHideButton imageButton" onclick="hideImages('i281Asm')">
+      <button class = "imageHideButton imageButton" onclick="">
         Hide Images
       </button>
     </div>
