@@ -1,0 +1,529 @@
+html, body {
+    margin-left: 0%;
+    margin-top: 0%;
+
+    display: flex;
+    flex-direction: column;
+
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+
+}
+
+.sideBar{
+  position: fixed;
+  z-index: 1;
+
+  width: fit-content;
+  height: fit-content;
+
+  display: block;
+
+  right: 3vw;
+
+  top: 55%;
+  transform: translateY(-50%) scale(2);
+
+
+}
+
+.sideBar svg{
+  display: block;
+
+  margin-bottom: 10px;
+
+}
+
+.sideBar svg#sideB3{
+  margin-bottom: 0;
+}
+
+
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.wrapper{
+  color: black;
+  width: 100px;
+  width: 30px;
+}
+
+.videoContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  scroll-snap-align: start;
+}
+
+.videoContainer video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%; 
+  min-height: 100%; 
+  filter: blur(5.5px);
+  transform: scale(1.01);
+  
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+  
+}
+
+.videoOverlay{
+  z-index: 1;
+}
+
+.videoOverlay h1{
+    border-radius: 30px;
+    left: 5vw;
+    font-size: 12dvw;
+    bottom: 10%;
+    margin: 0;
+
+    background-color: rgba(255, 255, 255, 0);
+
+
+    color: whitesmoke;
+    position: absolute;
+    --bs-body-font-family: "Verdana";
+    user-select: none;
+    
+}
+
+.videoOverlay a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.videoOverlay a:hover{
+  text-decoration: none;
+  color: inherit;
+}
+
+.videoOverlay h1:hover{
+  color: rgb(192, 192, 192);
+  /*background-color: rgba(255, 255, 255, .15);*/
+
+}
+
+
+#name{ 
+  font-size: 17dvw;
+}
+
+.snapPoint {
+    scroll-snap-align: start;
+    height: 80vh;
+}
+
+.page{  
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(255, 249, 246);  
+}
+
+.page h2{
+  color: rgb(0, 0, 0);
+}
+
+.siteCon{
+    overflow-y: auto;
+
+    height: 100vh;
+
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+}
+
+.bioItemCon{
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.bioCon{
+  position: relative;
+  overflow-y: hidden;
+
+  bottom: 0;
+  left: 20px;
+  height: 70vh;
+  width: 45vw;
+
+}
+
+.bioCon:hover{
+  overflow-y: auto;
+}
+
+.bioCon p{
+  font-size: 20px;
+
+  position: relative;
+  color: rgb(0, 0, 0);
+
+
+  word-wrap: break-word;
+}
+
+#headshot{
+    height: auto;
+    width: 48vw;
+    margin-top: 10vh;
+    margin-left: 10px;
+    
+}
+
+#about_me_title{
+  position: relative;
+  left: 20px;
+  font-size: 40px;
+
+  margin-top: 20px;
+  margin-bottom: 30px;
+  
+}
+
+#linksTitle{
+  text-align: center;
+  color: whitesmoke;
+  font-size: 65px;
+  margin-top: 20px;
+  margin-bottom: 75px;
+}
+
+
+.contactList ul{
+  vertical-align: middle;
+  list-style-type: none;
+
+}
+
+.contactList a{
+  text-decoration: none;
+  color: inherit;
+
+  display: flex;
+  align-items:center;
+
+  padding-left: 30px;
+  padding-right: 10px;
+  width: fit-content;
+
+  border-radius: 25px;
+}
+
+.contactList a:hover{
+  background-color: rgb(0, 0, 0,.15);
+}
+
+.contactList a:hover img{
+  transform: scale(1.5);
+}
+
+
+
+.contactList li{
+  color:whitesmoke;
+  margin-bottom: 30px;
+  font-size: 6vh;
+  margin-left: 60px;
+}
+
+.contactList a:hover span{
+  font-size: 7vh;
+}
+
+
+img.logo{
+  width: 40px;
+  height: 40px;
+
+  margin-right: 15px;
+  position: relative;
+  
+}
+
+span.linkText{
+  position: relative;
+}
+
+.projectCycler{
+  position: absolute;
+  top: 15vh;
+
+  height: 80vh;
+  width: 50vw;
+
+  align-self: center;
+
+  
+}
+
+
+.projectIcon{
+  position: relative;
+
+  width: 80%;
+  height: auto;
+  
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.projectIcon:hover{
+  transform: translateY(-50%) scale(1.1);
+}
+
+.projectIcon h2{
+  position: absolute;
+  font-size: 4.5vw;
+
+  padding-left: 10%;
+
+  
+  height: fit-content;
+
+  backdrop-filter: blur(3px) saturate(70%);
+  bottom: 5%;
+}
+
+.projectIcon img{
+  width: 100%;
+  height: 100%;
+
+  left: 0;
+  top: 0;
+}
+
+.cycleButton{
+  position: absolute;
+
+  background-color: transparent;
+  border: 0cm;
+
+  width: fit-content;
+  height: fit-content;
+
+  top: 50%;
+}
+
+.cycleButton svg{
+  transform: scale(4);
+}
+
+.cycleButton:hover svg{
+  fill: silver;
+}
+
+#leftButton{
+  left: .5vw;
+
+}
+
+#rightButton{
+  right: .5vw;
+}
+
+#projectsTitle{
+  align-self: center;
+  margin-top: 3vh;
+  font-size: 50px;
+
+  color: whitesmoke;
+
+}
+
+.projectCon{
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  
+  overflow: hidden;
+}
+
+.projectInformation{
+  position: relative;
+
+  color:  whitesmoke;
+  background-color: rgb(61, 59, 57);
+
+  margin-right: 10vw;
+
+  height: 100%;
+
+  overflow-y: hidden;
+}
+
+.projectInformation:hover{
+  overflow-y: auto;
+}
+
+.projectInformation ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0px;
+}
+
+.projectInformation h3{
+  text-decoration: underline;
+}
+
+.projectVisuals{
+  width: 39vw;
+  height: 65vh;
+
+  color:  whitesmoke;
+  
+  position: relative;
+
+  margin-left: 5vw;
+  margin-right: 5vw;
+
+}
+
+.projectVisuals img{
+  width: auto;
+  height: auto;
+
+  max-width: 30vw;
+  max-height: 60vh;
+  
+}
+
+.projectVisuals .imageWrapper{
+  width: 450px;
+}
+
+.projectVisuals h3{
+  margin-bottom: 0;
+}
+
+.projectTitle{
+  margin-top: 5x;
+  margin-bottom: 10px;
+
+  align-self: center;
+  color: whitesmoke;
+
+  font-size: 72px;
+
+  z-index: 1;
+
+}
+
+.projectImagesFull{
+  display: none;
+  background-color: rgb(61, 59, 57);
+
+  color: whitesmoke;
+
+  margin-top: 0;
+
+  display: none;
+
+
+}
+
+.projectImagesFull h3{
+  margin-bottom: 3vh;
+}
+
+.projectImagesFull .core{
+  z-index: 1;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  /*margin-left: 2vw;*/
+  --currentIndex: 0;
+
+  
+  
+}
+
+.projectImagesFull img{
+  width: auto;
+  height: 70vh;
+
+  margin-top: 0vh;
+  
+
+}
+
+.imageButton:hover{
+  background-color: silver;
+}
+
+.imageSeeButton{
+  margin-top: 6px;
+
+}
+
+.imageHideButton{
+  position: absolute;
+
+  z-index: 1;
+  bottom: 10px;
+  left: 30px;
+}
+
+.clickBar {
+  display: block;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  user-select: none;
+
+  width: 50vw;
+  transform: translateY(-13vh)  scaleY(3);
+
+  
+  margin-bottom: 15px;
+  background-color: rgb(0, 0, 0, 0);
+}
+
+.clickBar:hover{
+  background-color: rgb(0, 0, 0, 0.07);
+}
+
+.clickBar:hover svg{
+  fill: rgb(101, 100, 100);
+ 
+}
+
+.clickBar svg{
+  position: relative;
+  left: 50%;
+  top: 50%;
+
+  width: fit-content;
+
+  transform: scaleY(5) scaleX(8);
+}
+
+
+.leftbar{
+  left: 0;
+}
+.rightbar{
+  right: 0;
+}

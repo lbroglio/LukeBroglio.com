@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Luke Broglio</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+  </head>
+
+<body>
+    <div class = "sideBar" id = "sideBar">      
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-circle" id = "sideB0" onclick = "sideBar(0)" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="8"/>
+        </svg>
+      </a>
+
+      <a href="#bio_page">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-circle" id = "sideB1" onclick = "sideBar(1)" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          </svg>
+      </a>
+
+      <a href="#links"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-circle" id = "sideB2" onclick = "sideBar(2)" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        </svg>
+      </a>
+
+      <a href="#projectsPage">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-circle" id = "sideB3" onclick = "sideBar(3)" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        </svg>
+      </a>
+    
+    </div>
+
+    <div class="page snapPoint" onmouseover = "sideBar(0)" id = "landingPage">
+    <div class="videoContainer" id = "welcome">
+      
+      <video loop autoplay muted>
+          <source src="Media/Background.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+      </div>
+    
+      <div class="videoOverlay">
+          <h1><a href="#bio_page">Hi, I'm <span id="name"><strong>Luke</strong></span></a></h1>
+
+      </div> 
+      <script>
+          const video = document.querySelector("video");
+          video.playbackRate = 3;
+      </script>
+    </div>
+
+    <div class="snapPoint">
+      <nav class="navbar navbar-dark navbar-expand-lg" style = "background-color: black;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Luke Broglio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#bio_page">About Me</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#links">Contact</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Projects
+                </a>
+                <ul class="dropdown-menu">
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="siteCon">
+        <div class="page" onmouseover = "sideBar(1)" id = "bio_page">
+            <h2 id="about_me_title"> About Me:</h2>
+            <div class="bioCon">
+              <p>Hello, I'm Luke Broglio. I'm a student at Iowa State University studying Software Engineering with a minor in Cybersecurity. I grew up in the Twin Cities, Minnesota, where I fell in love with programming at a young age. I spent many of my middle and high school summers learning to make games in Python, Unity Engine, and Unreal.</p>
+              <p>I'm experienced in C, C++, C#, Python, Java, HTML/CSS, and Javascript. My personal favorites languages are C++ and Python. I'm also proficient in Git and have worked in Agile development.</p>
+              <p>I'm passionate about the power of technology to solve complex problems and create new opportunities. In my future career, I plan to develop innovative software applications that have a real impact on the world around me.</p>
+              <p>When not studying or working on programming projects, I like to keep up with new technological developments, get involved on campus, spend time with friends, and read Science Fiction novels.</p>
+            </div>
+              
+        </div>  
+
+        <div class="page" onmouseover = "sideBar(2)" id = "links">
+          <h1 id = "linksTitle">More of Me (WIP)</h1>
+          <div class="contactList">
+            <ul>
+              <li><a href="https://github.com/lbroglio"><img src = "Media/ghLogo.png" class="logo"> <span class = "linkText">View my work on GitHub</span></a></li>
+              <li><a href="https://www.linkedin.com/in/luke-broglio"><img src = "Media/inLogo.png" class="logo" style="width: 45px;"> <span class = "linkText">Connect with me on LinkedIn<span style="font-size: 20px; vertical-align: text-top;">&reg;</span></span></a></li>
+              <li><a><img src = "Media/pdfLogo.svg" class="logo" style="width: 45px;"> <span class = "linkText">Download my Resume</span></a></li>
+              <li><a href="mailto:[lukeBroglio@gmail.com]"><img src = "Media/mailLogo.svg" class="logo" style="width: 45px;"> <span class = "linkText">Email Me at lukeBroglio@gmail.com</span></a></li>
+            </ul>
+          </div>
+            
+      
+
+      <div class="page" onmouseover = "sideBar(3)" id = "projectsPage">
+
+        <h1 id = "projectsTitle"> Click on a project to learn more </h1>
+        
+          <div class = "projectCycler">
+            <button class = "cycleButton" id = "leftButton" onclick = "cycleProjects(-1)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+              </svg>
+            </button>
+
+            <button class = "cycleButton" id = "rightButton" onclick = "cycleProjects(1)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
