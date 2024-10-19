@@ -30,7 +30,7 @@
   </div>
 
   <div class="snapPoint">
-    <nav class="navbar navbar-dark navbar-expand-lg" style = "background-color: black;">
+    <nav class="navbar navbar-dark navbar-expand-lg " style = "background-color: black;">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Luke Broglio</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +49,7 @@
                 Projects
               </a>
               <ul class="dropdown-menu">
+                <li><a><span>Highlighted Projects</span></a></li>
               </ul>
             </li>
           </ul>
@@ -70,10 +71,35 @@
             </div>
        </div>
       <div class="page snapPoint" id="links">
-        <div class="contactButton">
-          <image class="linkImage" src="Media/inLogo.png"/>
-          <span class="contactText">Connect with me on LinkedIn</span>
+        <h2 id="contact_header">Connect with Me</h2>
+        <div class="contactCon">
+          <a href="https://www.linkedin.com/in/luke-broglio/">
+            <div class="contactButton">
+              <image class="linkImage" src="Media/inLogo.png"/>
+              <span class="contactText">Connect with me on LinkedIn</span>
+            </div>
+          </a>
+          <a href="https://github.com/lbroglio">
+            <div class="contactButton">
+              <image class="linkImage" src="Media/ghLogo.png"/>
+              <span class="contactText">See my work on GitHub</span>
+            </div>
+          </a>
+          <a href="/Media/Luke Broglio Resume.pdf" download>
+            <div class="contactButton">
+              <image class="linkImage" src="Media/docSym.png"></image>
+              <span class="contactText">Download my Resume<K/span>
+            </div>
+          </a>
+          <a href="mailto: lukebroglio@gmail.com">
+            <div class="contactButton" onmouseenter="revealEmail()" onmouseleave="hideEmail()">
+              <image class="linkImage" src="Media/emailSym.png"/>
+              <span class="contactText" id="emailSpan">Email Me</span>
+            </div>
+          </a>
         </div>
+
+
 
       </div>
     </div>

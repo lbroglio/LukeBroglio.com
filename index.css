@@ -201,14 +201,34 @@ body::-webkit-scrollbar {
   
 }
 
+#contact_header{
+  padding-top: 20px;
+  text-align: center;
+}
+
+.contactCon{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 50px;
+}
+
+.contactCon a, .contactCon a:visited, .contactCon a:hover, .contactCon a:active {
+  color: inherit;
+}
+
 .contactButton{
     display: inline-block;
     border: 3px solid black;
     width: fit-content;
-    margin-top: 10px;
     margin-left: 50px;
     border-radius: 25px;
+    margin-top: 20px;
+}
 
+.contactButton:hover{
+  background-color: skyblue;
+  color: white;
+  scale: 1.1;
 }
 
 .contactText{
@@ -220,3 +240,4 @@ body::-webkit-scrollbar {
     height: 30px;
     width: auto;
 }
+
