@@ -61,22 +61,48 @@ function setupProjectPage(projectName, sectionContainerName){
     .then(data => {
         // Decode the base64 encoded markdown
         var decodedMD = atob(data.content);
+        
+        // Remove back slash '\' characters because they are needed in the HTML
+        decodedMD = decodedMD.replaceAll(new RegExp("\\\\", 'g'), "")
 
         // Convert the markdown to HTML
         var converter = new showdown.Converter();
         converter.setFlavor('github');
         html = converter.makeHtml(decodedMD);
         
-        // Add some header values to converted html
+        // Add some header elements to converted html
         html = "<h1 class=\"projectHeader\">" + projectName + "</h1>" + 
-            "<a class=\"\" href=\"https://github.com/repos/lbroglio/" + projectName + "\">See this project on GitHub</a>" + html;
+            "<a class=\"\" href=\"https://github.com/lbroglio/" + projectName + "\">See this project on GitHub</a>" + html;
 
-        // Add converted HTML to doc
+        // Add converted HTML to page
         var containerDiv = document.createElement("div")
         containerDiv.classList.add("projectMDCon")
+        containerDiv.id = projectName;
         containerDiv.innerHTML += html
-        console.log(containerDiv)
+
+        // Change image srcs to point at GitHub
         newPage.appendChild(containerDiv);
+        var imgTags = newPage.getElementsByTagName("img")
+        //imgTags = newPage.getElementsByTagName("image")
+        for(let i =0; i < imgTags.length; i++){
+            let origSrc = imgTags[i].src;
+            // TODO: Find a more robust way to detect the start of the needed portion
+            let neededStart;
+            if(origSrc.includes("docs")){
+                neededStart = origSrc.indexOf("docs")
+            }
+            else if(origSrc.includes("Documents"))(
+                neededStart = origSrc.indexOf("Documents")
+            )
+            else{
+                neededStart = 0;
+            }
+
+            imgTags[i].src = "https://github.com/lbroglio/" + projectName + "/blob/main/" + origSrc.substring(neededStart) +"?raw=true";
+            
+            // Add class to image to help formatting
+            imgTags[i].classList.add("projectMDImage")
+        }
 
     })
     .catch(error => {
@@ -86,6 +112,22 @@ function setupProjectPage(projectName, sectionContainerName){
     // Add new page to HTML
     var highlightedCon = document.getElementById(sectionContainerName)
     highlightedCon.appendChild(newPage)
+
+    // Add a link on the home page
+    var linkCon = document.createElement("p")
+    linkCon.classList.add("selectorLinkCon")
+    var link = document.createElement("a")
+    link.classList.add("selectorLink")
+    link.href="#"+projectName
+    link.innerText = projectName
+    linkCon.appendChild(link)
+
+
+    var hp = highlightedCon.getElementsByClassName("projectHomePage")[0];
+    var selector = hp.getElementsByClassName("projectSelector")[0];
+    selector.appendChild(linkCon)
+    console.log(selector)
+
 }
 
 

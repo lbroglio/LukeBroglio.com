@@ -280,17 +280,21 @@ body::-webkit-scrollbar {
 .projectMDCon{
   position: relative;
   overflow-y: auto;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 2vw;
+  margin-right: 2vw;
   height: 80vh;
+  width: 96vw;
 
+}
+
+.projectMDImage{
+  max-width: 90%;
 }
 
 
 .projectHeader{
   text-align: center;
   font-weight: bold;
-  width: 100vw;
   background-color: black;
   color: white;
 }
@@ -298,3 +302,4 @@ body::-webkit-scrollbar {
 .projectGithubLink{
   margin-left: 50px;
 }
+
