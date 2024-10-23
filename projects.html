@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js" integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="index.js"></script>
     <script>getHighlightedProjects()</script>
 </head>
@@ -14,7 +15,7 @@
   <div class="snapPoint">
     <nav class="navbar navbar-dark navbar-expand-lg " style = "background-color: black;">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Luke Broglio</a>
+        <a class="navbar-brand" href="index.html">Luke Broglio</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +33,21 @@
     </nav>
 
     <div class="siteCon">
-        
+        <div id="highlightedCon">
+          <div class="page snapPoint" id="highlighted">
+            <h1 id="highlightedTitle">Highlighted Projects</h1>
+            <div class="selectorAndText">
+              <div class="projectTextCon">
+                <p class="projectsText">These are past projects of mine which I think are particulary interesting or representative of my development
+                  skills and interests. They are all available on my <a class="inTextAnchor" href="https://github.com/lbroglio">GitHub</a> if you want to see more.
+                </p>
+              </div>
+              <div class="projectSelector">
+                <h2 class="selectorHeading">Projects:</h2>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
