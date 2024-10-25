@@ -240,8 +240,17 @@ function setupProjectPage(projectName, sectionContainerName){
 
 
 
-var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/);
 
-if (isMobile) {
-   document.location = "indexM.html";
+window.onload = function(){
+    
+    var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/);
+    // Get current file name
+    var locName = location.pathname.split("/").slice(-1).pop()
+    console.log(locName)
+    if(locName === "index.html" && isMobile){
+        console.log("HERE");
+        document.location = "indexM.html";
+    }
+    
+
 }

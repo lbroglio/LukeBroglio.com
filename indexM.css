@@ -42,7 +42,7 @@ body::-webkit-scrollbar {
   /* Make video to at least 100% wide and tall */
   min-width: 100%; 
   min-height: 100%; 
-  filter: blur(5.5px);
+  filter: blur(10px);
   transform: scale(1.01);
   
 
@@ -131,21 +131,14 @@ body::-webkit-scrollbar {
 
 .bioCon{
   position: relative;
-  overflow-y: hidden;
+  overflow-y: scroll;
 
-  bottom: 0;
-  left: 20px;
-  height: 70vh;
-  width: 45vw;
-
-}
-
-.bioCon:hover{
-  overflow-y: auto;
+  padding-left: 20px;
+  height: 90vh;
 }
 
 .bioCon p{
-  font-size: 20px;
+  font-size: 50px;
 
   position: relative;
   color: rgb(0, 0, 0);
