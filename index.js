@@ -1,5 +1,39 @@
 var origText = "";
 
+
+function swap(arr, i ,j){
+    let tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+}
+
+function partition(arr, low, high, dict){
+    let pivot = arr[high]
+    let i = low -1;
+    // Move all elements smaller than the pivot to left side of array
+    for(let j = low; j <= high - 1; j++){
+        if(dict[arr[j]] > dict[pivot]){
+            i++;
+            swap(arr, i, j);
+        }
+    }
+
+    // Move the pivot 
+    swap(arr, i + 1, high);
+    return i + 1;
+}
+
+// Perform quick sort using the value in a dict as the reference
+function quickSortFromDict(arr, low, high, dict){
+    if(low < high){
+        let partI = partition(arr, low, high, dict)
+        //Recusively call
+        quickSortFromDict(arr, low, partI -1, dict);
+        quickSortFromDict(arr, partI + 1, high, dict);
+    }
+}
+
+
 // Add my email when the email button is hovered over (Not included in base HTML to hide it from web scrapers)
 function revealEmail(){
     // Add email href attribute
@@ -32,6 +66,82 @@ function getHighlightedProjects() {
             setupProjectPage(data[i], "highlightedCon")
         }
     })
+}
+
+// Get the three projects with the most commits on GitHub in the last two weeks and 
+// add them to the 'current' project section
+async function getCurrentProjects(){
+    let page = 1;
+    let commitCount = {}
+    let endEnum = false
+
+    // Count commits in the last three weeks to get the most worked on
+    while(!endEnum){
+        let apiUrl = "https://api.github.com/users/lbroglio/events?per_page=100&page=" + page;
+        await fetch(apiUrl)
+        .then(async response => {
+            if (!response.ok) {
+                await new Promise(r => setTimeout(r, 2000));
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            endEnum = enumerateEventsResponsePage(data, commitCount);
+            page += 1;        
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    // Add all repose to and array and sort it based on their number of commits
+    let keysArr = Object.keys(commitCount);
+    let repoArr = [...keysArr];
+    
+    // Sort the array based on the values in commitCount
+    quickSortFromDict(repoArr, 0, repoArr.length - 1, commitCount);
+
+    // Add the top three repos 
+    for(let i=0; i < 3 && i < repoArr.length; i++){
+        let proj = repoArr[i];
+        startIndex = proj.indexOf("/") + 1
+        proj = proj.substring(startIndex)
+        setupProjectPage(proj, "currentCon")
+    }
+}
+
+
+// Read through a response page from the GitHub events pages API and when encountering a commit to a repository
+// increment that respositories count in the commitCount dict.
+// Stops after it reads the last three weeks of events and has at least one project.
+function enumerateEventsResponsePage(data, commitCount){
+    for(let i =0; i < data.length; i++){
+        let currEvent = data[i];
+        // If this is a push event
+        if(currEvent["type"] === "PushEvent" && currEvent["actor"]["login"] === "lbroglio"){
+            // If this commit is more than three weeks old return false to indicate that the end of the 
+            // search period has been reached. (If no repository has been found continue searching)
+            let pushDate = Date.parse(currEvent["created_at"]);
+            let currDate = Date.now();
+            var diffTime = Math.abs(currDate - pushDate);
+            var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
+            if(diffDays > 21 && Object.keys(commitCount).length > 0){
+                return true;
+            }
+
+            // Add the commits to the dict
+            let repoKey = currEvent["repo"]["name"]
+            if(repoKey in commitCount){
+                commitCount[repoKey] += currEvent["payload"]["commits"].length;
+            }
+            else{
+                commitCount[repoKey] = currEvent["payload"]["commits"].length;
+            }
+        }
+    }
+
+    return false;
 }
 
 
@@ -126,8 +236,6 @@ function setupProjectPage(projectName, sectionContainerName){
     var hp = highlightedCon.getElementsByClassName("projectHomePage")[0];
     var selector = hp.getElementsByClassName("projectSelector")[0];
     selector.appendChild(linkCon)
-    console.log(selector)
-
 }
 
 
