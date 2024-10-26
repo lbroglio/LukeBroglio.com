@@ -25,7 +25,7 @@ body::-webkit-scrollbar {
   width: 30px;
 }
 
-.videoContainer {
+.imgContainer {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -38,7 +38,7 @@ body::-webkit-scrollbar {
   scroll-snap-align: start;
 }
 
-.videoContainer video {
+.imgContainer img {
   /* Make video to at least 100% wide and tall */
   min-width: 100%; 
   min-height: 100%; 
