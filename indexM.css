@@ -372,3 +372,18 @@ p, h1, h2, h3, h4, a, li, span{
 .projectMDCon h4{
   font-size: 55px;
 }
+
+.projectDirector{
+  text-align: center;
+  position: relative;
+  top: 10vh;
+}
+
+.projectDirector:hover{
+  color:white;
+}
+
+.projectDirectorText{
+  color: blue;
+  font-size: 70px;
+}
