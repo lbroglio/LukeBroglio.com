@@ -307,13 +307,13 @@ window.onload = async function(){
     if(locName.includes("projects.html") && check){
         document.location = "projectsM.html";
     }
-    else if( check){
+    else if(check && !locName.includes("indexM.html") && !locName.includes("projectsM.html")){
         document.location = "indexM.html";
     }
 
     
 
-    if(locName === "projects.html" || locName === "projectsM.html"){
+    if(locName.includes("projects.html") || locName.includes("projectsM.html")){
         addHighlightedProjects();
         addCurrentProjects();
     }
