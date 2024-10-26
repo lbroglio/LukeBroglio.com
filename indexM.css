@@ -134,6 +134,7 @@ body::-webkit-scrollbar {
   overflow-y: scroll;
 
   padding-left: 20px;
+  padding-right: 20px;
   height: 90vh;
 }
 
@@ -148,17 +149,21 @@ body::-webkit-scrollbar {
 }
 
 #headshot{
+    display: block;
     height: auto;
-    width: 48vw;
-    margin-top: 10vh;
-    margin-left: 10px;
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 20vh;
     
 }
 
 #about_me_title{
   position: relative;
-  left: 20px;
-  font-size: 40px;
+  font-size: 60px;
+
+  text-align: center;
 
   margin-top: 20px;
   margin-bottom: 30px;
