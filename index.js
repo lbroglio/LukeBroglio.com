@@ -299,7 +299,7 @@ window.onload = async function(){
         await makeAPIRequests();
     }
 
-    var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/);
+    var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/) || navigator.maxTouchPoints > 0;
     // Get current file name
     var locName = location.pathname.split("/").slice(-1).pop()
     console.log(locName)
