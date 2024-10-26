@@ -66,7 +66,7 @@ body::-webkit-scrollbar {
     background-color: rgba(255, 255, 255, 0);
 
 
-    color: whitesmoke;
+    color: white;
     position: absolute;
     --bs-body-font-family: "Verdana";
     user-select: none;
@@ -80,11 +80,11 @@ body::-webkit-scrollbar {
 
 .videoOverlay a:hover{
   text-decoration: none;
-  color: inherit;
+  color: #90AEAD;
 }
 
 .videoOverlay h1:hover{
-  color: rgb(192, 192, 192);
+  color: #90AEAD;
   /*background-color: rgba(255, 255, 255, .15);*/
 
 }
@@ -92,6 +92,7 @@ body::-webkit-scrollbar {
 
 #name{ 
   font-size: 17dvw;
+  color: inherit;
 }
 
 .snapPoint {
@@ -103,7 +104,7 @@ body::-webkit-scrollbar {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: rgb(255, 249, 246);  
+  background-color: #D3D9D4;  
 }
 
 .page h2{
@@ -171,14 +172,16 @@ body::-webkit-scrollbar {
 }
 
 #contact_header{
-  padding-top: 20px;
+  padding-top: 60px;
   text-align: center;
+  font-size: 70px;
 }
 
 .contactCon{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
 }
 
 .contactCon a, .contactCon a:visited, .contactCon a:hover, .contactCon a:active {
@@ -189,9 +192,8 @@ body::-webkit-scrollbar {
     display: inline-block;
     border: 3px solid black;
     width: fit-content;
-    margin-left: 50px;
     border-radius: 25px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .contactButton:hover{
@@ -201,18 +203,23 @@ body::-webkit-scrollbar {
 }
 
 .contactText{
-    margin-right: 10px;
+    margin-right: 20px;
+    font-size: 50px;
 }
 
 .linkImage{
     margin: 10px;
-    height: 30px;
+    height: 50px;
     width: auto;
 }
 
 .projectDropdownText{
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.projectDropdownText:hover{
+  color: #90AEAD;
 }
 
 #highlightedTitle{
@@ -228,36 +235,42 @@ body::-webkit-scrollbar {
 }
 
 .selectorAndText{
-  display: inline-block;
-  vertical-align: top;
+  display: block;
 }
 
 .projectTextCon{
-  width: 60vw;
-  float: left;
+  display: block;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 .projectsText{
   margin: 50px;
-  font-size: 30px;
+  font-size: 50px;
   line-height: 1.5;
 
 }
 
 .projectSelector{
-  position: relative;
-  float: right;
+  display: block;
 
-  left: 20px;
-  width: 35vw;
+  position: relative;
+
+  width: 90vw;
   height: fit-content;
-  border: 1px solid black;
+  border: 1px solid #123E66;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 .selectorHeading{
-  margin-left: 10px;
-  margin-top: 10px;
+  text-align: center;
+
+  font-size: 70px;
 }
 
 .selectorLinkCon{
@@ -267,12 +280,12 @@ body::-webkit-scrollbar {
 
 .selectorLink{
   text-decoration: none;
-  color: black;
-  font-size: 20px;
+  color: inherit;
+  font-size: 50px;
 }
 
 .selectorLink:hover {
-  color: gray;
+  color: #90AEAD;
 }
 
 .projectMDCon{
@@ -280,7 +293,7 @@ body::-webkit-scrollbar {
   overflow-y: auto;
   margin-left: 2vw;
   margin-right: 2vw;
-  height: 80vh;
+  height: 90vh;
   width: 96vw;
 
 }
@@ -293,8 +306,8 @@ body::-webkit-scrollbar {
 .projectHeader{
   text-align: center;
   font-weight: bold;
-  background-color: black;
-  color: white;
+  background-color: #123E66;
+  color: #D3D9D4;
 }
 
 .projectGithubLink{
@@ -306,3 +319,56 @@ body::-webkit-scrollbar {
   text-decoration: none;
 }
 
+.headerDivider{
+    position: absolute;
+    border: none;
+    height: 10px;
+    width: 100vw;
+    background: #123E66;
+    left: 0;
+}
+
+p, h1, h2, h3, h4, a, li, span{
+  color: #212A31;
+}
+
+.mobileBrand{
+  color: white;
+}
+
+.mobileNavItem{
+  color: white;
+}
+
+.mobileNavItem:hover{
+  color: silver;
+}
+
+.projectMDCon p{
+  font-size: 50px;
+}
+
+.projectMDCon li{
+  display: block;
+  font-size: 50px;
+}
+
+.projectMDCon a{
+  font-size: 50px;
+}
+
+.projectMDCon h1{
+  font-size: 80px;
+}
+
+.projectMDCon h2{
+  font-size: 70px;
+}
+
+.projectMDCon h3{
+  font-size: 60px;
+}
+
+.projectMDCon h4{
+  font-size: 55px;
+}

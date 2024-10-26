@@ -65,8 +65,7 @@ body::-webkit-scrollbar {
 
     background-color: rgba(255, 255, 255, 0);
 
-
-    color: whitesmoke;
+    color: white;
     position: absolute;
     --bs-body-font-family: "Verdana";
     user-select: none;
@@ -76,15 +75,16 @@ body::-webkit-scrollbar {
 .videoOverlay a{
   text-decoration: none;
   color: inherit;
+
 }
 
 .videoOverlay a:hover{
   text-decoration: none;
-  color: inherit;
+  color: #90AEAD
 }
 
 .videoOverlay h1:hover{
-  color: rgb(192, 192, 192);
+  color: #90AEAD;
   /*background-color: rgba(255, 255, 255, .15);*/
 
 }
@@ -92,7 +92,9 @@ body::-webkit-scrollbar {
 
 #name{ 
   font-size: 17dvw;
+  color: inherit;
 }
+
 
 .snapPoint {
     scroll-snap-align: start;
@@ -103,11 +105,7 @@ body::-webkit-scrollbar {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: rgb(255, 249, 246);  
-}
-
-.page h2{
-  color: rgb(0, 0, 0);
+  background-color: #D3D9D4;  
 }
 
 .siteCon{
@@ -148,7 +146,6 @@ body::-webkit-scrollbar {
   font-size: 20px;
 
   position: relative;
-  color: rgb(0, 0, 0);
 
 
   word-wrap: break-word;
@@ -159,7 +156,6 @@ body::-webkit-scrollbar {
     width: 48vw;
     margin-top: 10vh;
     margin-left: 10px;
-    
 }
 
 #about_me_title{
@@ -217,6 +213,10 @@ body::-webkit-scrollbar {
   margin-right: 5px;
 }
 
+.projectDropdownText:hover{
+  color: #90AEAD;
+}
+
 #highlightedTitle{
   text-align: center;
   padding-top: 30px;
@@ -254,27 +254,29 @@ body::-webkit-scrollbar {
   left: 20px;
   width: 35vw;
   height: fit-content;
-  border: 1px solid black;
+  border: 3px solid #123E66;
 }
 
 .selectorHeading{
   margin-left: 10px;
   margin-top: 10px;
+  
 }
 
 .selectorLinkCon{
   font-style: italic;
   margin-left: 10px;
+
 }
 
 .selectorLink{
   text-decoration: none;
-  color: black;
+  color: inherit;
   font-size: 20px;
 }
 
 .selectorLink:hover {
-  color: gray;
+  color: #90AEAD;
 }
 
 .projectMDCon{
@@ -282,7 +284,7 @@ body::-webkit-scrollbar {
   overflow-y: auto;
   margin-left: 2vw;
   margin-right: 2vw;
-  height: 80vh;
+  height: 90vh;
   width: 96vw;
 
 }
@@ -295,8 +297,8 @@ body::-webkit-scrollbar {
 .projectHeader{
   text-align: center;
   font-weight: bold;
-  background-color: black;
-  color: white;
+  background-color: #123E66;
+  color: #D3D9D4;
 }
 
 .projectGithubLink{
@@ -308,3 +310,7 @@ body::-webkit-scrollbar {
   text-decoration: none;
 }
 
+
+p, h1, h2, h3, h4, a, li, span{
+  color: #212A31;
+}

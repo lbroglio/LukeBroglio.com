@@ -306,7 +306,12 @@ window.onload = async function(){
     if(locName === "index.html" && isMobile){
         document.location = "indexM.html";
     }
-    else if(locName === "projects.html" || locName === "projectsM.html"){
+    else if(locName === "projects.html" && isMobile){
+        document.location = "projectsM.html";
+    }
+
+
+    if(locName === "projects.html" || locName === "projectsM.html"){
         addHighlightedProjects();
         addCurrentProjects();
     }
