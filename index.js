@@ -231,7 +231,9 @@ function setupProjectPage(readme, projectName, sectionContainerName){
             neededStart = 0;
         }
 
-        imgTags[i].src = "https://github.com/lbroglio/" + projectName + "/blob/main/" + origSrc.substring(neededStart) +"?raw=true";
+        if(neededStart != 0){
+            imgTags[i].src = "https://github.com/lbroglio/" + projectName + "/blob/main/" + origSrc.substring(neededStart) +"?raw=true";``
+        }
             
         // Add class to image to help formatting
         imgTags[i].classList.add("projectMDImage")
