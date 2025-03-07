@@ -81,11 +81,19 @@ async function getCurrentProjects(dataCon){
     let endEnum = false
 
     // Count commits in the last three weeks to get the most worked on
-    while(!endEnum){
+    // Maximum number of pages to prevent endless loop
+    while(!endEnum && page < 4){
         let apiUrl = "https://api.github.com/users/lbroglio/events?per_page=100&page=" + page;
         await fetch(apiUrl)
         .then(async response => {
             if (!response.ok) {
+                // If the response is a (422) related to pagination being disabled by github
+                // hen the program can move on the commits it has already 
+                if(response.status === "422"){
+                    endEnum = true;
+                    return response.json()
+                }
+
                 await new Promise(r => setTimeout(r, 2000));
                 throw new Error('Network response was not ok');
             }
@@ -167,7 +175,7 @@ async function getReadMe(projectName){
     // Retrieve the README file for the project
 
     // Define the API URL
-    const apiUrl = ' https://api.github.com/repos/lbroglio/' + projectName +  '/contents/README.md';
+    const apiUrl = 'https://api.github.com/repos/lbroglio/' + projectName +  '/contents/README.md';
         
     // Make a GET request to get the README to display on the projects page
     try {
