@@ -77,7 +77,7 @@ async function getHighlightedProjects(dataCon) {
 // add them to the 'current' project section
 async function getCurrentProjects(dataCon){
     let page = 1;
-    let commitCount = {}
+    let commitDict = {}
     let endEnum = false
 
     // Count commits in the last three weeks to get the most worked on
@@ -100,8 +100,30 @@ async function getCurrentProjects(dataCon){
             return response.json();
         })
         .then(data => {
-            endEnum = enumerateEventsResponsePage(data, commitCount);
+            endEnum = enumerateEventsResponsePage(data, commitDict);
             page += 1;        
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    let commitCount = {}
+    // Get the number of commits per repository
+    for(const repo in commitDict){
+        let apiUrl = `https://api.github.com/repos/lbroglio/${repo}/commits?sha=${commitDict[repo]}`;
+
+        console.log(apiUrl)
+        await fetch(apiUrl)
+        .then(async response => {
+            if (!response.ok) {
+                await new Promise(r => setTimeout(r, 2000));
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            commitCount[repo] = data.length; 
         })
         .catch(error => {
             console.error('Error:', error);
@@ -130,14 +152,13 @@ async function getCurrentProjects(dataCon){
         }
     }
     dataCon["currentProjs"] = currentRepos;
-    console.log(dataCon)
+    //console.log(dataCon)
 }
 
-
 // Read through a response page from the GitHub events pages API and when encountering a commit to a repository
-// increment that respositories count in the commitCount dict.
+// track what the oldest head commit hash is along with the repo name.
 // Stops after it reads the last three weeks of events and has at least one project.
-function enumerateEventsResponsePage(data, commitCount){
+function enumerateEventsResponsePage(data, pushDict){
     for(let i =0; i < data.length; i++){
         let currEvent = data[i];
         // If this is a push event
@@ -152,14 +173,8 @@ function enumerateEventsResponsePage(data, commitCount){
                 return true;
             }
 
-            // Add the commits to the dict
-            let repoKey = currEvent["repo"]["name"]
-            if(repoKey in commitCount){
-                commitCount[repoKey] += currEvent["payload"]["commits"].length;
-            }
-            else{
-                commitCount[repoKey] = currEvent["payload"]["commits"].length;
-            }
+            let repoName = currEvent["repo"]["name"].split("/")[1];
+            pushDict[repoName] = currEvent["payload"]["before"]
         }
     }
 
@@ -290,7 +305,7 @@ function addCurrentProjects(){
 
 // Make API requests for README data and add them to session storage
 async function makeAPIRequests(){
-    console.log("API Requests")
+    // console.log("API Requests")
     let dataCon = {}
     // Make requests to github API
     await getHighlightedProjects(dataCon);
