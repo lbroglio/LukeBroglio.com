@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js" integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="index.js"></script>
 </head>
 
@@ -64,14 +65,7 @@
             <div class="bioItemCon">
               <h2 id="about_me_title"> About Me</h2>
               <div class="headerDivider"> </div>
-              <div class="bioCon">
-                <br/>
-                <p>I'm Luke Broglio. I'm an Associate Systems Developer at Federated Insurance. I recently graduated from Iowa State University with a degree in  Software Engineering and a minor in Cybersecurity. I grew up in the Twin Cities, Minnesota, where I fell in love with programming at a young age. I spent many of my middle and high school summers learning to make games with Python, Unity Engine, and Unreal.</p> <br/>
-                <p>I'm experienced in a variety of programming languages including C, C++, C#, Python, Java, Kotlin, HTML/CSS, Javascript. With some of my personal favorites being C++ and C#. I also have experience developing web applications with the Springboot framework, using Gradle to build Java and Kotlin applications including writing extensions and plugins for Gradle, using Git for version control, and graphics programming including writing shader code in GLSL and HLSL.</p> <br/>
-                <p>At Federated Insurance, I'm on the DevSecOps team working to improve build and deployment processes, upgrade developer tools, and imporve application security. I also completed two summer internships and part-time work experience as a Software Development Intern at National Information Solutions Cooperative where I gained experience working in software development professionally. At NISC I contributed to Springboot and Angular applications and also became familiar with using Atlassian tools such as Bitbucket, Jira, Confluence, and Bamboo as well as JFrog Artifactory and Xray. </p> <br/>
-                <p>When not working, I like to keep up with new technological developments, watch tv and movies, spend time with friends, and read Science Fiction novels.</p>
-              </div>
-            </div>
+              <div class="bioCon" id="bioCon"></div>
        </div>
       <div class="page snapPoint" id="links">
         <h2 id="contact_header">Connect with Me</h2>
@@ -107,7 +101,12 @@
         <a href="projects.html#highlighted" class="projectDirector"><h1 class="projectDirectorText">See My Projects</h1></a>
       </div>
     </div>
-
+    <div class="page snapPoint" id="certs">
+      <h2 id="certs_header">My Certifications</h2>
+      <div class="certContainer">
+      <div data-iframe-width="400" data-iframe-height="270" data-share-badge-id="52b1ac74-411e-4467-833d-52196f37e3c7" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+    </div>
+    </div>
   </div>
 </body>
 

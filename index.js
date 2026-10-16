@@ -56,7 +56,7 @@ function hideEmail(){
 // Get the highlighted projects from github and add them to the projects page 
 async function getHighlightedProjects(dataCon) {
     // Get JSON
-    await fetch("highlighted.json")
+    await fetch("content/highlighted.json")
     .then(function (response) {
         return response.json();
     })
@@ -303,6 +303,24 @@ function addCurrentProjects(){
     }
 }
 
+function loadBio(){
+    // Read the bio.md file and add it to the HTML
+    fetch("content/bio.md")
+    .then(function (response) {
+        return response.text();
+    })
+    .then(function (data) {
+        // Convert the markdown to HTML
+        var converter = new showdown.Converter();
+        converter.setFlavor('github');
+        html = converter.makeHtml(data);
+        
+        // Add converted HTML to page
+        var bioCon = document.getElementById("bioCon");
+        bioCon.innerHTML += html;
+    });
+}
+
 // Make API requests for README data and add them to session storage
 async function makeAPIRequests(){
     // console.log("API Requests")
@@ -341,6 +359,6 @@ window.onload = async function(){
         addHighlightedProjects();
         addCurrentProjects();
     }
-    
 
+    loadBio();
 }
