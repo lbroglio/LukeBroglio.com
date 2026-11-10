@@ -1,5 +1,7 @@
 var origText = "";
 
+const CURRENT_REPOS_COUNT = 4;
+
 
 function swap(arr, i ,j){
     let tmp = arr[i];
@@ -109,11 +111,13 @@ async function getCurrentProjects(dataCon){
     }
 
     let commitCount = {}
-    // Get the number of commits per repository
+    // Get the number of commits per repository in the last three weeks
     for(const repo in commitDict){
-        let apiUrl = `https://api.github.com/repos/lbroglio/${repo}/commits?sha=${commitDict[repo]}`;
+        const threeWeeksAgo = new Date();
+        threeWeeksAgo.setDate(threeWeeksAgo.getDate() - 21);
 
-        console.log(apiUrl)
+        let apiUrl = `https://api.github.com/repos/lbroglio/${repo}/commits?since=${threeWeeksAgo.toISOString()}`;
+
         await fetch(apiUrl)
         .then(async response => {
             if (!response.ok) {
@@ -139,8 +143,8 @@ async function getCurrentProjects(dataCon){
     let currentRepos = []
     let reposAdded = 0;
 
-    // Add the top three repos 
-    for(let i=0; reposAdded < 3 && i < repoArr.length; i++){
+    // Add the top x repos (Based on constant CURRENT_REPOS_COUNT) to the current projects section
+    for(let i=0; reposAdded < CURRENT_REPOS_COUNT && i < repoArr.length; i++){
         let proj = repoArr[i];
         startIndex = proj.indexOf("/") + 1
         proj = proj.substring(startIndex)
@@ -169,7 +173,8 @@ function enumerateEventsResponsePage(data, pushDict){
             let currDate = Date.now();
             var diffTime = Math.abs(currDate - pushDate);
             var diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
-            if(diffDays > 21 && Object.keys(commitCount).length > 0){
+
+            if(diffDays > 21 && Object.keys(pushDict).length > 0){
                 return true;
             }
 
